@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#18352e">
+<title>El Fogón de Casa | Almuerzos caseros</title>
+<style>
+:root{--green:#18352e;--green2:#28483e;--cream:#f7f3e9;--paper:#fffdf8;--red:#d84a3a;--gold:#d9a441;--ink:#202923;--muted:#6b756e}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,'Times New Roman',serif}
+.topbar{position:sticky;top:0;z-index:10;background:#18352eee;color:white;backdrop-filter:blur(12px);display:flex;justify-content:space-between;align-items:center;padding:13px max(5vw,18px);font-family:Arial,sans-serif}
+.brand{font-weight:800;letter-spacing:.06em}.brand span{color:#efb75c}.topbar a{color:white;text-decoration:none;font-size:.9rem}
+.hero{min-height:78vh;background:radial-gradient(ellipse at 75% 40%,#41614a 0%,#244237 40%,#142d27 100%);color:#fff;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;padding:8vh max(7vw,22px);overflow:hidden;position:relative}
+.hero:after{content:"";position:absolute;width:430px;height:430px;border:1px solid #ffffff26;border-radius:50%;right:-110px;top:8%;box-shadow:0 0 0 35px #ffffff08,0 0 0 75px #ffffff06}
+.eyebrow{font:700 .72rem Arial,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#efbd6a}
+h1{font-size:clamp(3.3rem,7vw,6.8rem);line-height:.91;margin:20px 0;max-width:680px;letter-spacing:-.055em}
+h1 em{font-weight:400;color:#efbd6a}.hero p{font:1.05rem/1.7 Arial,sans-serif;color:#e3e9e1;max-width:480px}
+.cta{display:inline-flex;margin-top:18px;background:var(--red);color:white;text-decoration:none;padding:15px 23px;border-radius:40px;font:700 .9rem Arial,sans-serif;box-shadow:0 10px 30px #0003;transition:.25s}.cta:hover{transform:translateY(-4px);background:#ee5a48}
+.hero-art{justify-self:center;position:relative;width:min(35vw,390px);aspect-ratio:1;border-radius:50%;background:linear-gradient(145deg,#f8e7bd,#d4a85e);box-shadow:0 30px 90px #0005;display:grid;place-items:center;animation:float 5s ease-in-out infinite}
+.plate{width:82%;height:82%;border-radius:50%;background:#fff9e9;box-shadow:inset 0 0 0 12px #e8dfca,0 12px 30px #5c3a1c55;display:grid;place-items:center;font-size:clamp(5rem,12vw,9rem)}
+.stamp{position:absolute;bottom:7%;right:-8%;background:var(--red);color:white;width:112px;height:112px;border-radius:50%;display:grid;place-items:center;text-align:center;font:800 .75rem/1.35 Arial,sans-serif;transform:rotate(10deg);border:5px solid var(--cream)}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-13px) rotate(2deg)}}
+.section{padding:90px max(6vw,20px)}.section-head{text-align:center;max-width:680px;margin:0 auto 42px}.kicker{color:var(--red);font:800 .7rem Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase}
+h2{font-size:clamp(2.3rem,4vw,3.8rem);margin:12px 0 10px;letter-spacing:-.04em}.section-head p{font:1rem/1.7 Arial,sans-serif;color:var(--muted)}
+.filters{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:0 auto 32px}.filter{border:1px solid #c9c8b9;background:transparent;padding:10px 17px;border-radius:30px;cursor:pointer;font:700 .8rem Arial,sans-serif;color:var(--green)}.filter.active,.filter:hover{background:var(--green);color:white;border-color:var(--green)}
+.menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:1050px;margin:auto}
+.card{background:var(--paper);border-radius:22px;overflow:hidden;box-shadow:0 10px 35px #243b2a12;transition:transform .3s,box-shadow .3s;animation:rise .65s both}.card:hover{transform:translateY(-7px);box-shadow:0 18px 45px #243b2a20}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.food-photo{height:220px;background:linear-gradient(135deg,#d9a441,#8a4a2c);display:grid;place-items:center;position:relative;overflow:hidden}.food-photo img{width:100%;height:100%;object-fit:cover}.food-emoji{font-size:5.5rem;filter:drop-shadow(0 12px 10px #57371955)}.food-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#172d25a0,transparent 60%);pointer-events:none}
+.card-body{padding:23px}.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.card h3{font-size:1.55rem;margin:0 0 10px}.price{font:800 1.1rem Arial,sans-serif;color:var(--red);white-space:nowrap}.desc{font: .92rem/1.65 Arial,sans-serif;color:var(--muted);margin:0 0 18px}.order{display:inline-block;color:var(--green);font:800 .78rem Arial,sans-serif;text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:4px}
+.note{text-align:center;font: .85rem/1.6 Arial,sans-serif;color:var(--muted);margin:28px auto 0;max-width:700px}
+.story{background:#e9e5d8;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.story-art{min-height:300px;border-radius:25px;background:linear-gradient(145deg,#d5a04e,#8d4a2e);display:grid;place-items:center;font-size:9rem}.story p{font:1rem/1.8 Arial,sans-serif;color:#59645c}
+footer{background:var(--green);color:#f8f2e7;text-align:center;padding:45px 20px}footer strong{font-size:1.5rem}footer p{font: .9rem Arial,sans-serif;color:#d5dfd5}
+.admin-fab{position:fixed;right:18px;bottom:18px;z-index:20;border:0;background:var(--red);color:white;border-radius:50px;padding:13px 18px;font:700 .82rem Arial,sans-serif;box-shadow:0 8px 25px #0003;cursor:pointer}
+.modal{display:none;position:fixed;inset:0;background:#101a16b8;z-index:30;overflow:auto;padding:24px}.modal.open{display:block}.panel{max-width:720px;margin:30px auto;background:var(--paper);border-radius:20px;padding:25px}.panel h2{font-size:2rem}.panel label{display:block;font:700 .8rem Arial,sans-serif;margin:13px 0 5px}.panel input,.panel textarea,.panel select{width:100%;padding:11px;border:1px solid #c9c8b9;border-radius:9px;font: .95rem Arial,sans-serif}.panel textarea{min-height:75px}.row-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.btn{border:0;border-radius:30px;padding:11px 16px;background:var(--green);color:white;font:700 .8rem Arial,sans-serif;cursor:pointer}.btn.red{background:var(--red)}.btn.light{background:#e8e5d9;color:var(--green)}.admin-list{margin-top:20px}.admin-item{padding:12px 0;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;gap:10px;align-items:center;font: .9rem Arial,sans-serif}.small{font: .78rem/1.5 Arial,sans-serif;color:var(--muted)}
+@media(max-width:760px){.hero{grid-template-columns:1fr;min-height:auto;padding-top:75px;padding-bottom:65px}.hero-art{width:min(68vw,310px);margin:45px auto 5px}.menu{grid-template-columns:1fr}.food-photo{height:210px}.story{grid-template-columns:1fr}.story-art{min-height:220px}.section{padding-top:65px;padding-bottom:65px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="topbar"><div class="brand">EL FOGÓN <span>DE CASA</span></div><a href="#menu">Ver almuerzos ↓</a></nav>
+<header class="hero">
+ <div><div class="eyebrow">Sabor casero · Hecho con cariño</div><h1>El sabor de<br><em>sentirse en casa.</em></h1><p>Almuerzos preparados con ese toque de hogar que convierte cualquier día en un momento especial.</p><a class="cta" id="heroOrder" href="#menu">Descubre el menú&nbsp; ↗</a></div>
+ <div class="hero-art"><div class="plate">🍛</div><div class="stamp">HECHO<br>CON AMOR<br>♥</div></div>
+</header>
+<main>
+<section class="section" id="menu">
+ <div class="section-head"><div class="kicker">Nuestro menú</div><h2>Un almuerzo que alegra el día.</h2><p>Escoge tu favorito y haz tu pedido por WhatsApp. Todos nuestros almuerzos tienen el mismo precio.</p></div>
+ <div class="filters" id="filters"></div><div class="menu" id="menuGrid"></div>
+ <p class="note">Precios en pesos colombianos. La sopa se indica como adicional en los platos donde aparece.</p>
+</section>
+<section class="section story">
+ <div class="story-art">🥘</div><div><div class="kicker">Cocina con cariño</div><h2>Como hecho en casa.</h2><p>En El Fogón de Casa creemos que un buen almuerzo reúne sabores sencillos, ingredientes frescos y mucho cariño. Gracias por elegirnos y apoyar nuestra cocina.</p></div>
+</section>
+</main>
+<footer><strong>El Fogón de Casa</strong><p>Almuerzos caseros preparados con cariño.</p><p>Haz tu pedido y disfruta el sabor de casa.</p></footer>
+<button class="admin-fab" id="adminOpen">⚙ Administrar menú</button>
+<div class="modal" id="adminModal"><div class="panel">
+ <div style="display:flex;justify-content:space-between;gap:10px;align-items:center"><h2>Administrar menú</h2><button class="btn light" id="closeAdmin">Cerrar ✕</button></div>
+ <p class="small">Puedes agregar platos, cambiar precios, descripciones y fotos desde este dispositivo. Los cambios se guardan en el navegador de este dispositivo.</p>
+ <form id="dishForm">
+  <input type="hidden" id="dishId">
+  <label>Nombre del plato</label><input id="dishName" required placeholder="Ej. Pollo guisado">
+  <label>Categoría</label><select id="dishCategory"><option>Almuerzos ejecutivos</option><option>Almuerzos especiales</option><option>Almuerzos económicos</option></select>
+  <label>Descripción</label><textarea id="dishDesc" required></textarea>
+  <label>Precio (COP)</label><input id="dishPrice" type="number" min="0" step="500" required value="14000">
+  <label>Fotografía del plato (opcional)</label><input id="dishPhoto" type="file" accept="image/*">
+  <div class="row-actions"><button class="btn red" type="submit">Guardar plato</button><button class="btn light" type="button" id="clearForm">Limpiar</button></div>
+ </form><div class="admin-list" id="adminList"></div>
+ <div class="row-actions"><button class="btn" id="exportData">Exportar respaldo</button><label class="btn light" style="margin:0;cursor:pointer">Importar respaldo<input id="importData" type="file" accept="application/json" style="display:none"></label></div>
+ <p class="small">Importante: esta versión gratuita no tiene base de datos en línea. Los cambios hechos aquí no se sincronizan automáticamente con los celulares de tus clientes. Para actualizar el menú público en todos los dispositivos, habrá que publicar una nueva versión o conectar una base de datos gratuita.</p>
+</div></div>
+<script>
+const WA_NUMBER = ""; // Agrega aquí tu número con indicativo de país, solo números. Ej: 573001234567
+const initialDishes = [
+{id:"1",name:"Pollo guisado casero",category:"Almuerzos ejecutivos",desc:"Arroz, pollo guisado, lentejas, tajadas, ensalada y sopa adicional.",price:14000,emoji:"🍗",photo:""},
+{id:"2",name:"Carne en bistec",category:"Almuerzos ejecutivos",desc:"Arroz, carne en bistec, fríjoles, ensalada, patacones y sopa adicional.",price:14000,emoji:"🥩",photo:""},
+{id:"3",name:"Costilla de cerdo BBQ",category:"Almuerzos especiales",desc:"Arroz, costilla de cerdo a la BBQ y papas a la francesa.",price:14000,emoji:"🍖",photo:""},
+{id:"4",name:"Cerdo a la plancha",category:"Almuerzos económicos",desc:"Arroz de fideo, carne de cerdo a la plancha, papas a la francesa y ensalada.",price:14000,emoji:"🍽️",photo:""}
+];
+let dishes = JSON.parse(localStorage.getItem("fogondc_dishes")||"null") || initialDishes;
+let activeCategory="Todos";
+const money=n=>new Intl.NumberFormat("es-CO",{style:"currency",currency:"COP",maximumFractionDigits:0}).format(n);
+function save(){localStorage.setItem("fogondc_dishes",JSON.stringify(dishes));render();}
+function waLink(d){const msg=encodeURIComponent(`Hola, quiero pedir ${d.name}. ¿Me confirmas disponibilidad?`);return WA_NUMBER?`https://wa.me/${WA_NUMBER}?text=${msg}`:`https://wa.me/?text=${msg}`;}
+function render(){
+ const cats=["Todos",...new Set(dishes.map(d=>d.category))];
+ document.getElementById("filters").innerHTML=cats.map(c=>`<button class="filter ${c===activeCategory?"active":""}" data-cat="${c}">${c}</button>`).join("");
+ document.querySelectorAll(".filter").forEach(b=>b.onclick=()=>{activeCategory=b.dataset.cat;render();});
+ const shown=activeCategory==="Todos"?dishes:dishes.filter(d=>d.category===activeCategory);
+ document.getElementById("menuGrid").innerHTML=shown.map((d,i)=>`<article class="card" style="animation-delay:${i*.09}s"><div class="food-photo">${d.photo?`<img src="${d.photo}" alt="${d.name}">`:`<span class="food-emoji">${d.emoji||"🍲"}</span>`}</div><div class="card-body"><div class="card-top"><h3>${esc(d.name)}</h3><div class="price">${money(d.price)}</div></div><p class="desc">${esc(d.desc)}</p><a class="order" href="${waLink(d)}" target="_blank" rel="noopener">PEDIR POR WHATSAPP ↗</a></div></article>`).join("")||"<p>No hay platos en esta categoría todavía.</p>";
+ document.getElementById("adminList").innerHTML=dishes.map(d=>`<div class="admin-item"><span><b>${esc(d.name)}</b><br><span class="small">${money(d.price)}</span></span><span><button class="btn light" onclick="editDish('${d.id}')">Editar</button> <button class="btn red" onclick="deleteDish('${d.id}')">Borrar</button></span></div>`).join("");
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function resetForm(){document.getElementById("dishForm").reset();document.getElementById("dishId").value="";document.getElementById("dishPrice").value=14000;}
+function editDish(id){const d=dishes.find(x=>x.id===id);if(!d)return;document.getElementById("dishId").value=d.id;document.getElementById("dishName").value=d.name;document.getElementById("dishCategory").value=d.category;document.getElementById("dishDesc").value=d.desc;document.getElementById("dishPrice").value=d.price;document.getElementById("dishForm").scrollIntoView({behavior:"smooth"});}
+function deleteDish(id){if(confirm("¿Seguro que quieres eliminar este plato?")){dishes=dishes.filter(d=>d.id!==id);save();}}
+document.getElementById("dishForm").onsubmit=async e=>{e.preventDefault();const id=document.getElementById("dishId").value||String(Date.now());const old=dishes.find(d=>d.id===id);const f=document.getElementById("dishPhoto").files[0];let photo=old?.photo||"";if(f){photo=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(f);});}
+const d={id,name:document.getElementById("dishName").value.trim(),category:document.getElementById("dishCategory").value,desc:document.getElementById("dishDesc").value.trim(),price:Number(document.getElementById("dishPrice").value),photo,emoji:old?.emoji||"🍲"};dishes=old?dishes.map(x=>x.id===id?d:x):[...dishes,d];save();resetForm();alert("Plato guardado en este dispositivo.");};
+document.getElementById("adminOpen").onclick=()=>document.getElementById("adminModal").classList.add("open");
+document.getElementById("closeAdmin").onclick=()=>document.getElementById("adminModal").classList.remove("open");
+document.getElementById("clearForm").onclick=resetForm;
+document.getElementById("exportData").onclick=()=>{const blob=new Blob([JSON.stringify(dishes,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="respaldo-el-fogon-de-casa.json";a.click();URL.revokeObjectURL(a.href);};
+document.getElementById("importData").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!Array.isArray(data))throw Error();dishes=data;save();alert("Respaldo importado.");}catch{alert("El archivo no es válido.");}};
+render();
+</script>
+</body></html>
